@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RecordAttendanceController">
+   <children>
+      <Label layoutX="52.0" layoutY="219.0" text="Student Name :" />
+      <TextField fx:id="txtStudentID" layoutX="159.0" layoutY="50.0" prefHeight="26.0" prefWidth="210.0" />
+      <ImageView fx:id="imgStudent" fitHeight="121.0" fitWidth="129.0" layoutX="158.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/qr-code(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="58.0" layoutY="55.0" text="Student ID :" />
+      <TextField fx:id="txtStudentName" layoutX="158.0" layoutY="214.0" prefHeight="26.0" prefWidth="210.0" />
+      <Button fx:id="btnIN" layoutX="159.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnINClickOnAction" prefHeight="26.0" prefWidth="46.0" text="IN" />
+      <Button fx:id="btnOUT" layoutX="211.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnOUTClickOnAction" text="OUT" />
+   </children>
+</AnchorPane>
