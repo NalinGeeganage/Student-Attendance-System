@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.viewReportController">
    <children>
-      <Button fx:id="btnTodayAttendence" layoutX="88.0" layoutY="72.0" mnemonicParsing="false" onAction="#btnTodayAttendenceClickOnAction" text="Today Attendance" />
-      <Button fx:id="btnFindStudentAttendence" layoutX="88.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnFindStudentAttendenceClicOnAction" text="Find Student Attendence" />
-      <Button fx:id="btnDateRange" layoutX="88.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnDateRangeClickOnAction" text="Find Attendence Date Range" />
+      <Button fx:id="btnTodayAttendance" layoutX="88.0" layoutY="72.0" mnemonicParsing="false" onAction="#btnTodayAttendanceClickOnAction" text="Today Attendance" />
+      <Button fx:id="btnFindStudentAttendance" layoutX="88.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnFindStudentAttendanceClickOnAction" text="Find Student Attendence" />
+      <Button fx:id="btnDateRange" layoutX="88.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnDateRangeClickOnAction" text="Find Attendance Date Range" />
    </children>
 </AnchorPane>

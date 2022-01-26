@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="394.0" prefWidth="281.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SplashScreenController">
+<AnchorPane prefHeight="307.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SplashScreenController">
    <children>
-      <ImageView fitHeight="257.0" fitWidth="459.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="305.0" fitWidth="441.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/images.jpeg" />
+            <Image url="@../assets/animation-loading.gif" />
          </image>
       </ImageView>
-      <Label layoutX="53.0" layoutY="38.0" prefHeight="51.0" prefWidth="353.0" text="Student Attendence System" textFill="#285935">
+      <Label layoutX="28.0" layoutY="39.0" prefHeight="51.0" prefWidth="353.0" text="Student Attendence System" textFill="#285935">
          <font>
             <Font name="System Bold" size="22.0" />
          </font></Label>
-      <Label fx:id="lblLoading" layoutX="196.0" layoutY="319.0" text="Loading...." />
-      <ProgressBar fx:id="pgbLoading" layoutX="130.0" layoutY="344.0" prefHeight="18.0" prefWidth="200.0" progress="0.0" />
+      <Label fx:id="lblLoading" layoutX="174.0" layoutY="212.0" text="Loading...." textAlignment="CENTER" />
+      <ProgressBar fx:id="pgbLoading" layoutX="105.0" layoutY="260.0" prefHeight="18.0" prefWidth="200.0" progress="0.0" />
    </children>
 </AnchorPane>

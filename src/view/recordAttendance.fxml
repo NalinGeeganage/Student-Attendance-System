@@ -6,20 +6,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RecordAttendanceController">
    <children>
       <Label layoutX="52.0" layoutY="219.0" text="Student Name :" />
       <TextField fx:id="txtStudentID" layoutX="159.0" layoutY="50.0" prefHeight="26.0" prefWidth="210.0" />
-      <ImageView fx:id="imgStudent" fitHeight="121.0" fitWidth="129.0" layoutX="158.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgStudent" fitHeight="104.0" fitWidth="116.0" layoutX="158.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/qr-code(1).png" />
          </image>
       </ImageView>
       <Label layoutX="58.0" layoutY="55.0" text="Student ID :" />
       <TextField fx:id="txtStudentName" layoutX="158.0" layoutY="214.0" prefHeight="26.0" prefWidth="210.0" />
-      <Button fx:id="btnIN" layoutX="159.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnINClickOnAction" prefHeight="26.0" prefWidth="46.0" text="IN" />
-      <Button fx:id="btnOUT" layoutX="211.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnOUTClickOnAction" text="OUT" />
+      <Button fx:id="btnIN" layoutX="159.0" layoutY="251.0" mnemonicParsing="false" onAction="#btnINClickOnAction" prefHeight="26.0" prefWidth="46.0" text="IN" />
+      <Button fx:id="btnOUT" layoutX="219.0" layoutY="251.0" mnemonicParsing="false" onAction="#btnOUTClickOnAction" text="OUT" />
+      <Label alignment="CENTER" layoutX="77.0" layoutY="14.0" prefHeight="20.0" prefWidth="245.0" text="Record Attendance">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" alignment="CENTER" layoutX="90.0" layoutY="301.0" prefHeight="20.0" prefWidth="273.0" text="2022-01-25 12:15 PM">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="346.0" text="Last recorded attendance" />
+      <VBox layoutX="-18.0" layoutY="370.0" spacing="5.0">
+         <children>
+            <Label fx:id="lblID" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="16.0" prefWidth="386.0" text="ID: 2021/DEP08/1001">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblName" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="16.0" prefWidth="386.0" text="Name: Thilina Upendra">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStatus" alignment="CENTER" layoutX="10.0" layoutY="26.0" maxWidth="1.7976931348623157E308" prefHeight="16.0" prefWidth="386.0" text="2022-01-25 12:15 PM - IN">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
