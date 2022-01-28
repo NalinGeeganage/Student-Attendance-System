@@ -30,7 +30,7 @@ public class CreateAdminFormController {
     public Rectangle rect2;
     public Rectangle rect3;
     public void initialize() {
-        handlePasswordStrength();
+//        handlePasswordStrength();
     }
 
 
@@ -63,7 +63,7 @@ public class CreateAdminFormController {
         Connection connection = DBConnection.getInstance().getConnection();
         try {
             PreparedStatement stm = connection.
-                    prepareStatement("INSERT INTO user (name,username,password,role) VALUES (?,?,?,?,?)");
+                    prepareStatement("INSERT INTO user (name,username,password,role) VALUES (?,?,?,?)");
             stm.setString(1,txtName.getText());
             stm.setString(2,txtUserName.getText());
             stm.setString(3,txtPassword.getText());
@@ -79,10 +79,13 @@ public class CreateAdminFormController {
             primaryStage.setTitle("Student Attendance system : Log in");
             primaryStage.centerOnScreen();
             primaryStage.setResizable(false);
+            primaryStage.show();
             Platform.runLater(primaryStage::sizeToScene);
 
+            ((Stage)(btnCreateAccount.getScene().getWindow())).close();
+
         } catch (SQLException | IOException e) {
-            new Alert(Alert.AlertType.ERROR,"Something went wrong", ButtonType.OK);
+            new Alert(Alert.AlertType.ERROR,"Something went wrong", ButtonType.OK).show();
             e.printStackTrace();
         }
 
@@ -93,27 +96,28 @@ public class CreateAdminFormController {
 
 
         if (!txtName.getText().matches("\\b[A-Za-z ]+\\b")){
-            new Alert(Alert.AlertType.ERROR,"Enter only characters");
+            new Alert(Alert.AlertType.ERROR,"Enter only characters").show();
             txtName.requestFocus();
             return false;
         }
         else if (txtUserName.getText().length() < 4){
-            new Alert(Alert.AlertType.ERROR,"UserName Should have at least 4 letters");
+            new Alert(Alert.AlertType.ERROR,"UserName Should have at least 4 letters").show();
             txtName.requestFocus();
             return false;
         }
         else if (!txtUserName.getText().matches("\\b[A-Za-z0-9]*\\b")){
-            new Alert(Alert.AlertType.ERROR,"UserName Should have characters and numbers");
+            new Alert(Alert.AlertType.ERROR,"UserName Should have characters and numbers").show();
             txtUserName.requestFocus();
             return false;
         }
         else if (txtPassword.getText().length() < 4 ) {
-            new Alert(Alert.AlertType.ERROR, "Your password should have at least 4 characters");
+            new Alert(Alert.AlertType.ERROR, "Your password should have at least 4 characters").show();
             txtPassword.requestFocus();
             return false;
         }
-        else if (!txtPassword.equals(txtConfirmPassword)) {
-            new Alert(Alert.AlertType.ERROR, "Missed match combination");
+        else if (!txtPassword.getText().equals(txtConfirmPassword.getText())) {
+
+            new Alert(Alert.AlertType.ERROR, "Mismatch combination").show();
             txtConfirmPassword.requestFocus();
             return false;
         }

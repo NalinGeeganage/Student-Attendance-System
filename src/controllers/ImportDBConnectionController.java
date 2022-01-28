@@ -22,14 +22,16 @@ public class ImportDBConnectionController {
     private SimpleObjectProperty<File> fileProperty;
 
     public void initFileProperty(SimpleObjectProperty<File> fileProperty){
+
         this.fileProperty = fileProperty;
+
     }
 
     public void initialize(){
 
         txtBrowse.setEditable(false);
-//        rdoRestore.selectedProperty().addListener((observable, oldValue, newValue) ->
-//                btnOk.setDisable(txtBrowse.getText().isEmpty() && newValue));
+        rdoRestore.selectedProperty().addListener((observable, oldValue, newValue) ->
+                btnOk.setDisable(txtBrowse.getText().isEmpty() && newValue));
     }
 
     public void txtBrowseClickOnAction(ActionEvent event) {

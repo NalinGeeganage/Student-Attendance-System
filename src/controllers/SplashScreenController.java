@@ -78,7 +78,8 @@ public class SplashScreenController {
                 event.consume();
             });
             stage.showAndWait();
-            if (fileProperty == null){
+            System.out.println(fileProperty);
+            if (fileProperty.getValue() == null){
                 lblLoading.setText("Creating a new DB");
                 new Thread(()->{
                     try{
@@ -86,6 +87,7 @@ public class SplashScreenController {
 
                         Platform.runLater(() -> lblLoading.setText("Loading database"));
 
+                        /*Read Db Script */
                         InputStream stream = this.getClass().
                                 getResourceAsStream("/assets/db-script.sql");
                         byte[] buffer=new byte[stream.available()];
@@ -93,7 +95,7 @@ public class SplashScreenController {
                         String script = new String(buffer);
 
                         Connection connection = DriverManager.
-                                getConnection("jdbc:mysql://localhost:3306?allowMultiQueries", "root", "mysql");
+                                getConnection("jdbc:mysql://localhost:3306?allowMultiQueries=true", "root", "mysql");
                         Platform.runLater(() -> lblLoading.setText("Execute database script"));
                         Statement stm = connection.createStatement();
                         stm.execute(script);
@@ -101,14 +103,17 @@ public class SplashScreenController {
 
                         Platform.runLater(() -> lblLoading.setText("Obtaining a new DB connection"));
                         connection= DriverManager.
-                                getConnection("jdbc:mysql://localhost:3306/Dep8_Student_Attendance");
+                                getConnection("jdbc:mysql://localhost:3306/dep8_student_attendance","root","mysql");
                         sleep(500);
 
                         DBConnection.getInstance().init(connection);
 
-                        Platform.runLater(() -> lblLoading.setText("Setting Up the UI...."));
+                        Platform.runLater(() -> {
+                            lblLoading.setText("Setting Up the UI....");
+                            loadCreateAdminForm();
+                        });
 
-                        loadCreateAdminForm();
+
                     } catch (IOException | SQLException e) {
                         if(e instanceof SQLException){
                             dropDatabase();
@@ -157,11 +162,13 @@ public class SplashScreenController {
             stage.sizeToScene();
             stage.setResizable(false);
             stage.centerOnScreen();
+            stage.setOnCloseRequest((e)->dropDatabase());
             stage.show();
 
             ((Stage)(lblLoading.getScene().getWindow())).close();
 
         } catch (IOException e) {
+            System.out.println("errrrrorrr");
             e.printStackTrace();
         }
     }
