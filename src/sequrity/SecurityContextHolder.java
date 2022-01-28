@@ -1,2 +1,14 @@
-package sequrity;public class SecurityContextHolder {
+package sequrity;
+
+public class SecurityContextHolder {
+    private static Principle principle;
+
+    public static Principle getPrinciple(){
+        return principle;
+    }
+
+    public static void setPrinciple(Principle principle){
+        SecurityContextHolder.principle = principle;
+    }
+
 }

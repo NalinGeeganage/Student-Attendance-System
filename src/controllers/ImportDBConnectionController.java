@@ -21,8 +21,15 @@ public class ImportDBConnectionController {
     public RadioButton rdoBoot;
     private SimpleObjectProperty<File> fileProperty;
 
+    public void initFileProperty(SimpleObjectProperty<File> fileProperty){
+        this.fileProperty = fileProperty;
+    }
+
     public void initialize(){
+
         txtBrowse.setEditable(false);
+//        rdoRestore.selectedProperty().addListener((observable, oldValue, newValue) ->
+//                btnOk.setDisable(txtBrowse.getText().isEmpty() && newValue));
     }
 
     public void txtBrowseClickOnAction(ActionEvent event) {
@@ -37,17 +44,11 @@ public class ImportDBConnectionController {
         txtBrowse.setText(file != null? file.getAbsolutePath() : "");
         fileProperty.setValue(file);
 
-
-
     }
-
     public void btnOkClickOnAction(ActionEvent event) {
         if (rdoBoot.isSelected()){
             fileProperty.setValue(null);
         }
         ((Stage)(btnOk.getScene().getWindow())).close();
-    }
-    public void iniFileProperty(SimpleObjectProperty<File> fileProperty){
-        this.fileProperty = fileProperty;
     }
 }
