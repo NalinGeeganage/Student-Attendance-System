@@ -12,8 +12,8 @@
 <AnchorPane prefHeight="400.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RecordAttendanceController">
    <children>
       <Label layoutX="52.0" layoutY="219.0" text="Student Name :" />
-      <TextField fx:id="txtStudentID" layoutX="159.0" layoutY="50.0" prefHeight="26.0" prefWidth="210.0" />
-      <ImageView fx:id="imgStudent" fitHeight="104.0" fitWidth="116.0" layoutX="158.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtStudentID" layoutX="159.0" layoutY="50.0" onAction="#txtStudentID_OnAction" prefHeight="26.0" prefWidth="210.0" />
+      <ImageView fx:id="imgStudent" fitHeight="90.0" fitWidth="96.0" layoutX="166.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/qr-code(1).png" />
          </image>
@@ -52,5 +52,6 @@
             </Label>
          </children>
       </VBox>
+      <Label fx:id="lblStudentName" layoutX="192.0" layoutY="81.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
