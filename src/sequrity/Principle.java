@@ -50,4 +50,5 @@ public class Principle {
     public enum UserRole{
         ADMIN, USER;
     }
+
 }

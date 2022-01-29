@@ -7,6 +7,10 @@ public class SecurityContextHolder {
         return principle;
     }
 
+    public static void Clear(){
+        principle = null;
+    }
+
     public static void setPrinciple(Principle principle){
         SecurityContextHolder.principle = principle;
     }
