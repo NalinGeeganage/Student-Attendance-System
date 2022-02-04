@@ -36,6 +36,8 @@ public class RecordAttendanceController {
     private PreparedStatement stmSearchStudent;
 
     public void initialize(){
+        btnIN.setDisable(true);
+        btnOUT.setDisable(true);
         lblStudentName.setText("Please Enter Student ID or Read QR Code");
 
         //display time
@@ -63,7 +65,8 @@ public class RecordAttendanceController {
     }
 
     public void txtStudentID_OnAction(ActionEvent event) {
-
+        btnIN.setDisable(true);
+        btnOUT.setDisable(true);
 
         if(txtStudentID.getText().trim() == null){
             return;
@@ -76,6 +79,8 @@ public class RecordAttendanceController {
                 txtStudentName.setText(resultSet.getString("name").toUpperCase());
                 InputStream picture = resultSet.getBlob("picture").getBinaryStream();
                 imgStudent.setImage(new Image(picture));
+                btnIN.setDisable(false);
+                btnOUT.setDisable(false);
             }
             else {
                 new Alert(Alert.AlertType.ERROR,"Invalid Index Number").show();

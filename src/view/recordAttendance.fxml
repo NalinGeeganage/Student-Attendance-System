@@ -52,6 +52,6 @@
             </Label>
          </children>
       </VBox>
-      <Label fx:id="lblStudentName" layoutX="192.0" layoutY="81.0" textAlignment="CENTER" />
+      <Label fx:id="lblStudentName" alignment="CENTER" layoutX="110.0" layoutY="87.0" text="Enter ID /Scan QR to get in" textAlignment="CENTER" />
    </children>
 </AnchorPane>
