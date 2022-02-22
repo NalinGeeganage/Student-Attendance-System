@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AlertFormController">
    <children>
       <Label layoutX="150.0" layoutY="47.0" text="ALERT!" textFill="RED">
@@ -23,17 +22,17 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="ID: 2021/DEP08/I001">
+            <Label fx:id="lblID" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" text="ID: 2021/DEP08/I001">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="40.0" maxWidth="1.7976931348623157E308" text="NAME: THILINA UPENDRA">
+            <Label fx:id="lblName" alignment="CENTER" layoutX="10.0" layoutY="40.0" maxWidth="1.7976931348623157E308" text="NAME: THILINA UPENDRA">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="70.0" maxWidth="1.7976931348623157E308" text="2022-01-25 12:15 AM - IN">
+            <Label fx:id="lblDate" alignment="CENTER" layoutX="10.0" layoutY="70.0" maxWidth="1.7976931348623157E308" text="2022-01-25 12:15 AM - IN">
                <font>
                   <Font size="14.0" />
                </font>

@@ -3,12 +3,11 @@ package sequrity;
 public class Principle {
     private String username;
     private String password;
-    private String role;
+    private UserRole role;
 
     public Principle() {
     }
-
-    public Principle(String username, String password, String role) {
+    public Principle(String username, String password, UserRole role) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -30,11 +29,11 @@ public class Principle {
         this.password = password;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 

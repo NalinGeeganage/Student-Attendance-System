@@ -20,13 +20,24 @@ public class AdminHomeFormController {
     public Button btnManageUsers;
     public Button btnBackup;
     public Button btnLogOut;
+    public AnchorPane root;
 
-//    public void initialize(){
-//
-//
+    public void initialize(){
+        root.setOnKeyReleased(event -> {
+            switch (event.getCode()){
+                case F1:
+                    btnRecordAttendance.fire();
+                    break;
+                case F12:
+                    btnLogOut.fire();
+                    break;
+            }
+        });
+
+
 //        lblGreeting.setText("welcome" + SecurityContextHolder.getPrinciple().getUsername() + "!");
-//
-//    }
+
+    }
     public void initGreeting(String string){
         lblGreeting.setText(string);
     }

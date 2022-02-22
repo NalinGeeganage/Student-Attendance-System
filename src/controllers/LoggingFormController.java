@@ -11,8 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sequrity.Principle;
+import sequrity.SecurityContextHolder;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.sql.*;
 
 public class LoggingFormController {
@@ -27,11 +30,12 @@ public class LoggingFormController {
             new Alert(Alert.AlertType.ERROR,"Invalid username or password");
             txtUserName.selectAll();
             txtUserName.requestFocus();
+            return;
 
         }
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement stm = connection.prepareStatement("SELECT name , role FROM user WHERE username=? AND password=?");
+            PreparedStatement stm = connection.prepareStatement("SELECT name , role FROM dep8_student_attendance.user WHERE username=? AND password=?");
             stm.setString(1,txtUserName.getText());
             stm.setString(2,txtPassword.getText());
             ResultSet resultSet = stm.executeQuery();
@@ -42,6 +46,7 @@ public class LoggingFormController {
                 txtUserName.requestFocus();
             }
             else {
+
                 if(resultSet.getString("role").equals("ADMIN")){
                     FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/AdminHomeForm.fxml"));
                     AnchorPane pane = fxmlLoader.load();
@@ -57,7 +62,10 @@ public class LoggingFormController {
                         primaryStage.centerOnScreen();
                         primaryStage.sizeToScene();
                     });
-
+                    SecurityContextHolder.setPrinciple(new Principle(
+                            txtUserName.getText(),
+                            resultSet.getString("name"),
+                            Principle.UserRole.valueOf(resultSet.getString("role"))));
                 }
                 else {
                     FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/view/UserHomeForm.fxml"));
@@ -74,6 +82,10 @@ public class LoggingFormController {
                         primaryStage.centerOnScreen();
                         primaryStage.sizeToScene();
                     });
+                    SecurityContextHolder.setPrinciple(new Principle(
+                            txtUserName.getText(),
+                            resultSet.getString("name"),
+                            Principle.UserRole.valueOf(resultSet.getString("role"))));
 
 
                 }

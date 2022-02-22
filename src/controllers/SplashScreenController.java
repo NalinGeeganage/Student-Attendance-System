@@ -106,6 +106,7 @@ public class SplashScreenController {
                                 getConnection("jdbc:mysql://localhost:3306/dep8_student_attendance","root","mysql");
                         sleep(500);
 
+//                      init database to singleton class
                         DBConnection.getInstance().init(connection);
 
                         Platform.runLater(() -> {
