@@ -1,15 +1,17 @@
 package controllers;
 
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public class AlertFormController {
 
@@ -18,9 +20,17 @@ public class AlertFormController {
     public Label lblID;
     public Label lblName;
     public Label lblDate;
+    public ImageView imgDanger;
 
 
     public void initialize() throws URISyntaxException {
+        ScaleTransition sct = new ScaleTransition(Duration.millis(400),imgDanger);
+        sct.setFromX(0.8);
+        sct.setFromY(0.8);
+        sct.setToX(1.2);
+        sct.setToY(1.2);
+        sct.setCycleCount(-1);
+        sct.play();
         playSiren();
     }
 
