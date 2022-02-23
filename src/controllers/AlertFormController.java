@@ -1,12 +1,15 @@
 package controllers;
 
 import javafx.animation.ScaleTransition;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.net.URISyntaxException;
@@ -21,6 +24,7 @@ public class AlertFormController {
     public Label lblName;
     public Label lblDate;
     public ImageView imgDanger;
+    private SimpleBooleanProperty proceed;
 
 
     public void initialize() throws URISyntaxException {
@@ -42,14 +46,18 @@ public class AlertFormController {
     }
 
     public void btnProceed_OnAction(ActionEvent event) {
+        proceed.setValue(true);
+        ((Stage)(btnProceed.getScene().getWindow())).close();
     }
 
     public void btnCallPolice_OnAction(ActionEvent event) {
+        ((Stage)(btnProceed.getScene().getWindow())).close();
     }
 
-    public void initData(String studentID, String studentName, LocalDateTime date, boolean in){
+    public void initData(String studentID, String studentName, LocalDateTime date, boolean in, SimpleBooleanProperty proceed){
         lblID.setText(studentID);
         lblName.setText(studentName);
         lblDate.setText(date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a"))+"-"+ (in ? "IN": "OUT"));
+        this.proceed = proceed;
     }
 }

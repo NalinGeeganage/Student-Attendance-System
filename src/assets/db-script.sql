@@ -129,7 +129,7 @@ ALTER TABLE student ADD CONSTRAINT uk_contact UNIQUE (guardian_contact);
 
 # SELECT status FROM attendance WHERE student_id = '160320L' ORDER BY date DESC LIMIT 1;
 
-
+SELECT student_id, date, status, name FROM attendance JOIN student s on s.id = attendance.student_id ORDER BY date DESC LIMIT 1;
 
 
 
